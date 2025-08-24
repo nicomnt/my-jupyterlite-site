@@ -1,39 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>My JupyterLite Page</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- JupyterLite prebuilt distribution -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@jupyterlite/theme@0.4.0/index.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@jupyterlite/app@0.4.0/dist/jupyterlite.js"></script>
-</head>
-<body>
-  <h1>🚀 Welcome to My JupyterLite Page</h1>
-  <p>This example notebook runs Python directly in your browser via Pyodide.</p>
-
-  <!-- Container for JupyterLite -->
-  <div id="jupyterlite-root" style="height:80vh;"></div>
-
-  <script>
-    // Start the JupyterLite app
-    jupyterliteApp({
-      baseUrl: "https://cdn.jsdelivr.net/npm/@jupyterlite/app@0.4.0/",
-      litePluginSettings: {
-        "@jupyterlite/pyodide-kernel-extension:kernel": {
-          pyodideUrl: "https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"
-        }
-      }
-    }).then(app => {
-      app.start();
-
-      // Auto-load a notebook (example.ipynb) if it exists
-      app.commands.execute('docmanager:open', {
-        path: 'example.ipynb',
-        factory: 'Notebook'
-      });
-    });
-  </script>
-</body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Notebook Demo</title>
+  </head>
+  <body>
+    <h1>🚀 Embedded JupyterLite Notebook</h1>
+    <iframe
+      src="https://jupyterlite.github.io/demo/lab/index.html?path=example.ipynb"
+      width="100%"
+      height="800px"
+      style="border:none;"
+    ></iframe>
+    <p>Note: This iframe uses the official JupyterLite demo site, not your repo’s copy.</p>
+  </body>
 </html>
