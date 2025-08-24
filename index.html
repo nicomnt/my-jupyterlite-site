@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>My JupyterLite Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- JupyterLite prebuilt distribution -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@jupyterlite/theme@0.4.0/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@jupyterlite/theme@0.4.0/index.css" />
   <script src="https://cdn.jsdelivr.net/npm/@jupyterlite/app@0.4.0/dist/jupyterlite.js"></script>
 </head>
 <body>
   <h1>🚀 Welcome to My JupyterLite Page</h1>
-  <p>You can run Python code directly in your browser below (no server needed).</p>
+  <p>This notebook runs Python directly in your browser via Pyodide.</p>
 
-  <!-- The JupyterLite app will mount here -->
+  <!-- Container for JupyterLite -->
   <div id="jupyterlite-root" style="height:80vh;"></div>
 
   <script>
-    // Load the JupyterLite app into the div
+    // Start the JupyterLite app
     jupyterliteApp({
       baseUrl: "https://cdn.jsdelivr.net/npm/@jupyterlite/app@0.4.0/",
       litePluginSettings: {
@@ -27,6 +27,12 @@
       }
     }).then(app => {
       app.start();
+
+      // Auto-load a notebook (example.ipynb) if it exists
+      app.commands.execute('docmanager:open', {
+        path: 'example.ipynb',
+        factory: 'Notebook'
+      });
     });
   </script>
 </body>
